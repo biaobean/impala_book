@@ -9,14 +9,15 @@ BUILD_DIR=impala
 mkdrir -p $BUILD_DIR
 cd $BUILD_DIR
 
+## Get /bin
 cp -r $IMPALA_HOME/bin .
 
+## Get /be
 mkdir -p be/build/latest
 cp -r $IMPALA_HOME/be/build/latest/* be/build/latest
 rm -rf be/build/latest/benchmarks
 
-
-
+## Get /fe
 mkdir -p fe/target
 cp -r $IMPALA_HOME/fe/target/classes fe/target
 cp -r $IMPALA_HOME/fe/target/dependency fe/target
@@ -25,8 +26,10 @@ cp -r $IMPALA_HOME/fe/target/test-classes fe/target
 #rm fe/target/*-tests.jar
 cp $IMPALA_HOME/fe/target/impala-frontend-*-SNAPSHOT.jar fe/target
 
+## Get /shell
 cp -r $IMPALA_HOME/shell .
 
+## Get /toolchain
 
 tar zcvf impala.tar.gz ${IMPALA_HOME} \
 	--exclude="*-test"
