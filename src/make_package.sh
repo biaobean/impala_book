@@ -19,6 +19,9 @@ cd $BUILD_DIR
 ## Get /bin
 cp -r $IMPALA_HOME/bin .
 
+## Get WWW
+cp -r $IMPALA_HOME/www .
+
 ## Get /be
 mkdir -p be/build/latest
 cp -r $IMPALA_HOME/be/build/latest/* be/build/latest
@@ -38,9 +41,10 @@ cp $IMPALA_HOME/fe/target/impala-frontend-*-SNAPSHOT.jar fe/target
 
 ### Configs
 mkdir conf
+cp -r $IMPALA_HOME/fe/src/test/resources conf
 
 mkdir -p fe/src/test/
-cp -r $IMPALA_HOME/fe/src/test/resources fe/src/test/
+ln -s ../../../conf fe/src/test/resources
 
 ## Get /shell
 cp -r $IMPALA_HOME/shell .
