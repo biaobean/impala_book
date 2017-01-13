@@ -1,6 +1,9 @@
 
 # 编译Impala
 
+source ${IMPALA_HOME}/bin/impala-config.sh # You must source this in your shell before most of the below commands will work.
+
+
 ## 1.1安装组件
 
 以root用户登录hadoop001节点，安装组件
