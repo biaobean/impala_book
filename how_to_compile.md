@@ -224,3 +224,7 @@ cd impala
 
 
 注：如果有maven下包出现错误，应该是网络问题，重新更换网络，执行编译命令
+
+## 参考资源
+
+https://cwiki.apache.org/confluence/display/IMPALA/Building+Impala
