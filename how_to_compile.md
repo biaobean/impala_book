@@ -110,6 +110,12 @@ git clone https://git-wip-us.apache.org/repos/asf/incubator-impala.git
 cd incubator-impala
 ```
 
+### 添加toolchain链接
+
+```
+ln -s ${NATIVE_TOOLCHAIN}/build toolchain ##将NATIVE_TOOLCHAIN替换为上一步checkout的native_toolchain项目实际目录
+```
+
 ### 导入环境变量
 
 ```
