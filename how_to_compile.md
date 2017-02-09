@@ -132,7 +132,13 @@ Impala的根目录下的buildall.sh文件是编译脚本，默认编译类型是
 ./buildall.sh -skiptests -so
 ```
 
-注：如果有maven下包出现错误，应该是网络问题，重新更换网络，执行编译命令
+### 启动测试集群
+
+bin/start-impala-cluster.sh
+
+如需停止，运行
+
+bin/start-impala-cluster.sh --stop
 
 ## 参考资源
 
