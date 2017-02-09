@@ -1,4 +1,3 @@
-
 # 编译Impala
 
 ## 安装系统组件
@@ -14,7 +13,7 @@ Ubuntu系统：
 ```bash
 # General build requirements
 sudo apt-get install build-essential git
- 
+
 # Requirements for specific packages
 sudo apt-get install bison # For binutils
 sudo apt-get install autoconf automake libtool # For libevent
@@ -72,7 +71,7 @@ git clone https://github.com/cloudera/native-toolchain.git
 ```
 
 ### 安装
- 
+
 ```
 cd native-toolchain
 ./buildall.sh
@@ -118,25 +117,24 @@ ln -s ${NATIVE_TOOLCHAIN}/build toolchain ##将NATIVE_TOOLCHAIN替换为上一�
 
 ### 导入环境变量
 
-```
-export IMPALA_HOME=`pwd`
-source ${IMPALA_HOME}/bin/impala-config.sh
-```
+    export IMPALA_HOME=`pwd`
+    source ${IMPALA_HOME}/bin/impala-config.sh
 
 注意：通常在运行任何Impala命令，都需要先运行impala-config.sh。
 
 ### 修改编译版本
 
-Impala的根目录下的buildall.sh文件是编译脚本，默认编译类型是Debug版，如需编译Release版本，可以在文件中找到找到TARGET_BUILD_TYPE这行，将Debug改成Release。
+Impala的根目录下的buildall.sh文件是编译脚本，默认编译类型是Debug版，如需编译Release版本，可以在文件中找到找到TARGET\_BUILD\_TYPE这行，将Debug改成Release。
 
 ### 编译
 
 ```
-./buildall.sh -noclean -skiptests -so
+./buildall.sh -skiptests -so
 ```
 
 注：如果有maven下包出现错误，应该是网络问题，重新更换网络，执行编译命令
 
 ## 参考资源
 
-https://cwiki.apache.org/confluence/display/IMPALA/Building+Impala
+[https://cwiki.apache.org/confluence/display/IMPALA/Building+Impala](https://cwiki.apache.org/confluence/display/IMPALA/Building+Impala)
+
