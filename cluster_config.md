@@ -58,17 +58,10 @@ bin/start-impala-cluster.sh --force_kill
 
 _start-impala-cluster.sh_命令行还支持其他的一些配置：
 
-|--|--|
-"-s", "--cluster_size", 集群大小，即启动的impalad服务个数，缺省为3
-type="int", dest="cluster_size", default=3,
-                  help="Size of the cluster (number of impalad instances to start).")
-parser.add_option("--build_type", dest="build_type", default= 'latest',
-                  help="Build type to use - debug / release / latest")
-parser.add_option("--impalad_args", dest="impalad_args", action="append", type="string",
-                  default=[],
-                  help="Additional arguments to pass to each Impalad during startup")
-parser.add_option("--state_store_args", dest="state_store_args", action="append",
-                  type="string", default=[],
-                  help="Additional arguments to pass to State Store during startup")
-parser.add_option("--catalogd_args", dest="catalogd_args", action="append",
-                  type="string", default=[],
+| 参数 | 类型 | 说明 | 缺省值 |
+| :--- | :--- | :--- | :--- |
+| "-s", "--cluster_size" | 整数 | 集群大小，即启动的impalad服务个数 | 3 |
+| "--build_type" | 枚举 | 使用的编译类型，可以是debug、release或者latest | latest |
+| "--impalad_args" | 字符串 | impalad附加启动参数 | 空 |
+| "--state_store_args" | 字符串 | statestord附加启动参数 | 空 |
+|"--catalogd_args" | 字符串 | catalogd附加启动参数 | 空 |
