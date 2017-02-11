@@ -60,8 +60,17 @@ _start-impala-cluster.sh_命令行还支持其他的一些配置：
 
 | 参数 | 类型 | 说明 | 缺省值 |
 | :--- | :--- | :--- | :--- |
-| "-s", "--cluster_size" | 整数 | 集群大小，即启动的impalad服务个数 | 3 |
-| "--build_type" | 枚举 | 使用的编译类型，可以是debug、release或者latest | latest |
-| "--impalad_args" | 字符串 | impalad附加启动参数 | 空 |
-| "--state_store_args" | 字符串 | statestord附加启动参数 | 空 |
-|"--catalogd_args" | 字符串 | catalogd附加启动参数 | 空 |
+| -s或--cluster_size | 整数 | 集群大小，即启动的impalad服务个数 | 3 |
+| --build_type | 枚举 | 使用的编译类型，可以是debug、release或者latest | latest |
+| --impalad_args | 字符串 | impalad附加启动参数 | 空 |
+| --state_store_args | 字符串 | statestord附加启动参数 | 空 |
+| --catalogd_args | 字符串 | catalogd附加启动参数 | 空 |
+| -r或--restart_impalad_only | 开关 | 只重启impalad进程 | 否 |
+| --in-process | 开关 | 将所有Impala后端以及state store服务在一个进程中启动 | 否 |
+| --log_dir | 目录 | 日志目录 | 系统参数_IMPALA_CLUSTER_LOGS_DIR_ |
+| --max_log_files | 整数 | 能保留的日志文件个数 | 系统参数_IMPALA_MAX_LOG_FILES_，若未设置，则设为10 |
+| -v或--verbose | 开关 | 是否将所有输出打印到stderr/stdout终端 | 否 |
+| --wait_for_cluster | 开关 | 等待集群就绪 | 否 |
+| --log_level | 整数 | 设置impalad后段日志记录等级 | 1 |
+| --jvm_args | 字符串 | 启动JVM的附加参数 | 空 |
+| --kudu_masters | 列表 | Kudu的Master节点，可以声明多个，用分号间隔 | |
