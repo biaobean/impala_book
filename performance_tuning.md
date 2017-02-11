@@ -1,11 +1,15 @@
-Check stats, if you're sure you already ran stats then check stats twice.  It will show up as a warning towards the end of what I'd call the header of the profile.
-Check file format: parquet/snappy is your goto, experiment with this only if you're out of other options or you know you're severely disk limited (gzip can help there, but it's rare).  Find this in the scan fragment, I usually search for "File Formats:"
-Check the file/block size there are two places to look for this once in the explain plan where you'll see files=### size=###GB, and below in the scan fragments you'll see <volume id>:<# splits>/<split lengths> which is how to decode the following string, if split lengths are much less than what the block size should be investigate how you write the files.
-Stop at just checking the block size, put down the set command.  I know it's tempting to change but it's unlikely to be the main problem. So long as you're starting with default 128MB (hive/spark) or 256MB (Impala) leave it until you've exhausted other options.
-Check out the Execsummary, find the line that is taking the most time.
-Is there skew?  Is the average time much lower than the max (unfortunately it will never be perfect, but anything more than 2x the average is usually definately skew of some sort, could be data sizes, the data itself, or a slow/faulty node if you always see one node being slow for various queries)
-If you see something taking lots of time in the execsummary, do you have to do that step? 
-If you have to do that step, can it be optimized? Is it a join that you can denormalize or make into a nested type?  Is it a complex case statement that can be run as part of ETL? View that you can materialize? Put on your thinking cap.
-If you don't see any large times in the execsummary, check the query timeline right below it, do you see large startup time or for DML large metadata time?
-Okay we checked a bunch of other things and didn't find anything. we should have a good idea of what's slow, is it the SCAN?  Alright now we can think about changing the block size, you can decrease the block size if you want to drive up parallelism (more files).  If you have many columns (usually >2-300) increasing the block size may help.
-If you need to, dig deeper into the query fragments to see exactly why what's slow is slow, there are too many different metrics to list them out here, but use some intuition or if you're up to it go to the code and search for exactly what it's timing.  Keep in mind some times are wall time and some are CPU time, which is generally labelled.  Look for things that are off, like PerReadThreadRawHdfsThroughput < 100MB/s on a non-busy cluster. Keep in mind though there's a lot more to look at here than just one metric alone, and sometimes one part can look slow when another is the actual cause.
+## Impala 调优检查列表：
+
+如何通过查看Profile优化Impala：
+
+1. 检查stats：如果表没有统计信息的话，在Profile的header头部会显示警告。
+1. 检查文件系统：一般来讲建议Parquet文件格式加上Snappy压缩，除非有像磁盘空间太紧张这样的限制（此时可以用gzip压缩，但不常见）。 可以在scan片段中查找"File Formats:"
+1. 检查文件/块的大小。有两个地方可以查看这个信息：一个实在在计划解释中的files=### size=###GB，另外一个是在后面的scan片段中<volume id>:<# splits>/<split lengths>这样的描述。如果split lengths的值远远小于block size，则需要优化一下如何写文件的方式了。一般来讲缺省的block size的大小不需要调整（对于Hive/Spark为128MB，在Impala中是256MB），除非你试完了其他的优化手段。
+1. 检查Execsummary，找到耗时最长的片段。
+    1. 有执行倾斜（某个片段的平均执行时间远低于最大值）吗？通常数据的分布不是完美均匀的，因此每个节点的执行时间是不同的，，但任何超过2倍平均值的执行时间是需要注意的，比如优化数据大小、分布或者数据本身。如果看到一个节点对于各种查询都很慢，可能还是节点故障的原因。
+    1. 是否这个耗时的步骤是必需的嘛？
+    1. 即使是必需的，可以优化吗？比如把一个join转化为反规范化或嵌套类型的模型，或者将其实时数据准备实现为后台离线的ETL任务？使用视图或物化视图？
+1. 如果在execsummary中没有看到任何大的时间，检查查询的时间轴，看看是否有长的启动时间或大的元数据DML时间？
+1. 如果没有，在检查数据扫描。
+    1. 现在可以考虑改变块大小，如果想提高并行性（同时处理更多的文件），可以减少块大小。如果表有很多列（通常大于200或300列）增加块大小可能有所帮助。
+    1. 接下来是深入探究查询片段的各个不同指标，洞察缓慢的最终原因。比如，PerReadThreadRawHdfsThroughput是单个HDFS扫描的吞吐率，一般至少为100MB/s，否则可能是集群太忙或其他原因。注意这里的时间有些是墙上时间，有些是单个CPU时间，有些是并行时间总和。
