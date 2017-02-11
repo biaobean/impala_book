@@ -38,9 +38,22 @@
 
 ## 启动测试集群
 
+使用_bin/_目录下的_start-impala-cluster.sh_脚本可以在本机启动一个小型的Impala集群，包括一个Catalog服务，一个StateStore服务和三个Impala服务进程（数目可配置，见下）。
+
+```bash
 bin/start-impala-cluster.sh
+```
 
-如需停止，运行
+如需停止集群，运行
 
-bin/start-impala-cluster.sh --stop
+```bash
+bin/start-impala-cluster.sh --kill
+```
 
+如需强制停止所有服务，运行
+
+```bash
+bin/start-impala-cluster.sh --force_kill
+```
+
+_start-impala-cluster.sh_还支持其他的命令行配置：
