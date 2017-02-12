@@ -1,4 +1,4 @@
-## Impala 调优检查列表：
+ ## Impala 调优检查列表：
 
 如何通过查看Profile优化Impala：
 
