@@ -1,13 +1,10 @@
-| Flag | 说明 | 缺省值 |
-| :--- | :--- | :--- |
-| ABORT_ON_DEFAULT_LIMIT_EXCEEDED |  | 0
-| ABORT_ON_ERROR |  | 0 |
-| ALLOW_UNSUPPORTED_FORMATS |  | 0 |
-| APPX_COUNT_DISTINCT |  | 0 |
-| BATCH_SIZE |  | 0 |
-| COMPRESSION_CODEC |  | NONE |
-| DEBUG_ACTION |  | |
-| DEFAULT_ORDER_BY_LIMIT |  | -1 |
+| Flag | 说明 | 类型 | 缺省值 |
+| :--- | :--- | :--- | :--- |
+| ABORT_ON_ERROR | 启用此选项时，如果任何节点遇到错误，Impala 将立即取消查询，而不是继续操作并可能返回不完整的结果。默认情况下此选项处于禁用状态，可帮助在发生错误时收集最大诊断信息，例如，所有节点还是仅单个节点出现同一问题。当前，Impala 可以跳过的错误涉及数据损坏，例如应包含整数值但实际包含字符串值的列。 | 布尔值 | false |
+| APPX_COUNT_DISTINCT | 通过在内部将每个 COUNT(DISTINCT) 重写为使用 NDV() 函数，可以在单个查询内允许多个 COUNT(DISTINCT) 运算。所得到的计数是近似值，而不是精确值。 | 布尔值 | false |
+| BATCH_SIZE | SQL运算符一次运算求值的行数。主要用于测试。未定义或0值则使用缺省值1024。 | 整数 | 0（意味着1024） |
+| COMPRESSION_CODEC | 压缩算法 | 枚举值（SNAPPY、GZIP 和 NONE） | NONE |
+| DEBUG_ACTION | 调试查询语句 | 字符串 | 空 |
 | DISABLE_CACHED_READS |  | 0 |
 | DISABLE_CODEGEN |  | 0 |
 | DISABLE_OUTERMOST_TOPN |  | 0 |
@@ -51,4 +48,13 @@
 | STRICT_MODE |  | 0 |
 | SUPPORT_START_OVER |  | false |
 | SYNC_DDL |  | 0 |
-| V_CPU_CORES |  | 0]
+| V_CPU_CORES |  | 0 |
+
+注意：布尔类型参数的false和true值在Impala Shell的Set命令中分别显示为0或者1。
+
+以下为过时的设置项，可能以后版本会删除，不建议使用。
+| Flag | 说明 | 类型 | 缺省值 |
+| :--- | :--- | :--- | :--- |
+| ABORT_ON_DEFAULT_LIMIT_EXCEEDED | 在 Impala 1.4.0 及更高版本中，ORDER BY 子句不再需要伴随 LIMIT 子句，此查询选项弃用且不会产生任何效果。 | | 布尔值 | false |
+| ALLOW_UNSUPPORTED_FORMATS | 以前用于为文件格式提供支持的已过时的查询选项。请勿使用。将来可能会被删除。 | 布尔值 | false |
+| DEFAULT_ORDER_BY_LIMIT | 此查询选项弃用且不会产生任何效果。 |  | -1 |
