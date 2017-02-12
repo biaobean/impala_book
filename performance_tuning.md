@@ -13,3 +13,6 @@
 1. 如果没有，在检查数据扫描。
     1. 现在可以考虑改变块大小，如果想提高并行性（同时处理更多的文件），可以减少块大小。如果表有很多列（通常大于200或300列）增加块大小可能有所帮助。
     1. 接下来是深入探究查询片段的各个不同指标，洞察缓慢的最终原因。比如，PerReadThreadRawHdfsThroughput是单个HDFS扫描的吞吐率，一般至少为100MB/s，否则可能是集群太忙或其他原因。注意这里的时间有些是墙上时间，有些是单个CPU时间，有些是并行时间总和。
+
+
+https://www.cloudera.com/documentation/enterprise/5-7-x/topics/impala_runtime_filtering.html
