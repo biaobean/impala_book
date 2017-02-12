@@ -55,7 +55,7 @@
 
 | Flag | 说明 | 类型 | 缺省值 |
 | :--- | :--- | :--- | :--- |
-| ABORT_ON_DEFAULT_LIMIT_EXCEEDED | 在 Impala 1.4.0 及更高版本中，ORDER BY 子句不再需要伴随 LIMIT 子句，此查询选项弃用且不会产生任何效果。 | 布尔值 | false |
+| ABORT_ON_DEFAULT_LIMIT_EXCEEDED | 已弃用，当前已不起作用。 | 布尔值 | false |
 | ALLOW_UNSUPPORTED_FORMATS | 以前用于为文件格式提供支持的已过时的查询选项。请勿使用。将来可能会被删除。 | 布尔值 | false |
 | DEFAULT_ORDER_BY_LIMIT | 已弃用，当前已不起作用。 | | | -1 |
 | MAX_IO_BUFFERS | 已弃用，当前已不起作用。 | | | 0 |
