@@ -19,8 +19,8 @@
 | MAX_BLOCK_MGR_MEMORY |  | 0 |
 | MAX_ERRORS | Impala 日志文件中记录的任何特定查询的最大非致命错误数。 | | 整数 | 100 |
 | MAX_NUM_RUNTIME_FILTERS |  | 10 |
-| MAX_SCAN_RANGE_LENGTH | 扫描范围的最大长度。与表中的 HDFS 块数进行交互来确定查询处理涉及群集内多少个 CPU 核心。（每个核心扫描一个扫描范围。） | 整数 | 0 |
-| MEM_LIMIT |  | 0 |
+| MAX_SCAN_RANGE_LENGTH | 每个CPU核心扫描HDFS文件（不适用于Parquet格式）范围的最大长度。注意Impala在内部使用8MB读取缓冲区。 | 整数 | 0（后端默认值，与HDFS块大小相同） |
+| MEM_LIMIT | 查询可以在每个节点上分配的最大内存量。如果任何节点上的查询处理超过指定的内存限制，Impala将取消查询。 | 整数 | 0 |
 | MT_DOP |  | 0 |
 | NUM_NODES |  | 0 |
 | NUM_SCANNER_THREADS |  | 0 |
