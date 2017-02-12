@@ -57,6 +57,6 @@
 | :--- | :--- | :--- | :--- |
 | ABORT_ON_DEFAULT_LIMIT_EXCEEDED | 已弃用，当前已不起作用。 | 布尔值 | false |
 | ALLOW_UNSUPPORTED_FORMATS | 以前用于为文件格式提供支持的已过时的查询选项。请勿使用。将来可能会被删除。 | 布尔值 | false |
-| DEFAULT_ORDER_BY_LIMIT | 已弃用，当前已不起作用。 | | | -1 |
-| MAX_IO_BUFFERS | 已弃用，当前已不起作用。 | | | 0 |
+| DEFAULT_ORDER_BY_LIMIT | 已弃用，当前已不起作用。 | | -1 |
+| MAX_IO_BUFFERS | 已弃用，当前已不起作用。 | | 0 |
 | SUPPORT_START_OVER | 保留设置为false。 | 布尔值 | false |
