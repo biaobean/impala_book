@@ -12,7 +12,7 @@
 | DISABLE_STREAMING_PREAGGREGATIONS |  | 布尔值 | false |
 | DISABLE_UNSAFE_SPILLS | 启用后，查询在超过 Impala 内存限制时会直接失败，而不是将临时数据写入到磁盘。 | 布尔值 | false |
 | ENABLE_EXPR_REWRITES |  | 布尔值 | true |
-| EXEC_SINGLE_NODE_ROWS_THRESHOLD |  | 100 |
+| EXEC_SINGLE_NODE_ROWS_THRESHOLD | 扫描行数低于此阈值的查询将被视为“小查询”，Impala机哪个禁用并行执行和本机代码生成等优化措施，所有工作都在 Coordinator 节点上执行。 | 整数 | 100 |
 | EXPLAIN_LEVEL |  | 1 |
 | HBASE_CACHE_BLOCKS |  | 0 |
 | HBASE_CACHING |  | 0 |
@@ -53,6 +53,7 @@
 注意：布尔类型参数的false和true值在Impala Shell的Set命令中分别显示为0或者1。
 
 以下为过时的设置项，可能以后版本会删除，不建议使用。
+
 | Flag | 说明 | 类型 | 缺省值 |
 | :--- | :--- | :--- | :--- |
 | ABORT_ON_DEFAULT_LIMIT_EXCEEDED | 在 Impala 1.4.0 及更高版本中，ORDER BY 子句不再需要伴随 LIMIT 子句，此查询选项弃用且不会产生任何效果。 | | 布尔值 | false |
