@@ -73,3 +73,10 @@ Options:
   --var=KEYVAL          Define variable(s) to be used within the Impala
                         session. [default: none]
 ```
+
+
+
+
+
+
+
