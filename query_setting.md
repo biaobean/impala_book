@@ -22,8 +22,8 @@
 | MAX_SCAN_RANGE_LENGTH | 每个CPU核心扫描HDFS文件（不适用于Parquet格式）范围的最大长度。注意Impala在内部使用8MB读取缓冲区。 | 整数 | 0（后端默认值，与HDFS块大小相同） |
 | MEM_LIMIT | 查询可以在每个节点上分配的最大内存量。如果任何节点上的查询处理超过指定的内存限制，Impala将取消查询。 | 整数 | 0 |
 | MT_DOP |  | 0 |
-| NUM_NODES |  | 0 |
-| NUM_SCANNER_THREADS |  | 0 |
+| NUM_NODES | 限制处理查询的节点数，通常只用于调试。 | 仅接受值0（所有节点）或 1（只在Coordinator 节点上完成） | 0 |
+| NUM_SCANNER_THREADS | 对每个查询使用的最大扫描器线程数（在每个节点上）。默认情况下，Impala 使用尽可能多的可用核心（每个核心一个线程）。 | 整数 | 0 |
 | OPTIMIZE_PARTITION_KEY_SCANS |  | 0 |
 | PARQUET_ANNOTATE_STRINGS_UTF8 |  | 0 |
 | PARQUET_FALLBACK_SCHEMA_RESOLUTION |  | 0 |
