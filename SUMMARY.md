@@ -9,4 +9,5 @@
 * [Impalad配置](impalad配置.md)
 * [Impala调优](performance_tuning.md)
 * [查询配置参数](query_setting.md)
+* [Impala Shell](impala-shell.md)
 
