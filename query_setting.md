@@ -61,4 +61,8 @@
 | SUPPORT\_START\_OVER | 保留设置为false。 | 布尔值 | false |
 
 
+参考地址：
+https://www.cloudera.com/documentation/enterprise/latest/topics/impala_set.html
+
+
 
