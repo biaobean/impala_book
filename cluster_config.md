@@ -21,6 +21,7 @@
   <value>true</value>
 </property>
 ```
+
 注：其他属性需要和集群的设置相符，如_dfs.client.read.shortcircuit.skip.checksum_等。
 
 4. 在_hive-site.xml_中，至少需要Hive Metadata Server的Thrift接口地址_hive.metastore.uris_，样例文件如下：
