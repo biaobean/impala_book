@@ -6,11 +6,11 @@
 | COMPRESSION_CODEC | 压缩算法 | 枚举值（SNAPPY、GZIP 和 NONE） | NONE |
 | DEBUG_ACTION | 调试查询语句 | 字符串 | 空 |
 | DISABLE_CACHED_READS | | 布尔值 | false |
-| DISABLE_CODEGEN | 布尔值 | false |
+| DISABLE_CODEGEN | 禁用代码生成。用于问题诊断和调试。生产系统中无需设置。 | 布尔值 | false |
 | DISABLE_OUTERMOST_TOPN | | 布尔值 | false |
 | DISABLE_ROW_RUNTIME_FILTERING | | 布尔值 | false |
 | DISABLE_STREAMING_PREAGGREGATIONS |  | 布尔值 | false |
-| DISABLE_UNSAFE_SPILLS |  | 布尔值 | false |
+| DISABLE_UNSAFE_SPILLS | 启用后，查询在超过 Impala 内存限制时会直接失败，而不是将临时数据写入到磁盘。 | 布尔值 | false |
 | ENABLE_EXPR_REWRITES |  | 布尔值 | true |
 | EXEC_SINGLE_NODE_ROWS_THRESHOLD |  | 100 |
 | EXPLAIN_LEVEL |  | 1 |
