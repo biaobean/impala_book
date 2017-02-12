@@ -13,14 +13,13 @@
 | DISABLE_UNSAFE_SPILLS | 启用后，查询在超过 Impala 内存限制时会直接失败，而不是将临时数据写入到磁盘。 | 布尔值 | false |
 | ENABLE_EXPR_REWRITES |  | 布尔值 | true |
 | EXEC_SINGLE_NODE_ROWS_THRESHOLD | 扫描行数低于此阈值的查询将被视为“小查询”，Impala机哪个禁用并行执行和本机代码生成等优化措施，所有工作都在 Coordinator 节点上执行。 | 整数 | 100 |
-| EXPLAIN_LEVEL |  | 1 |
-| HBASE_CACHE_BLOCKS |  | 0 |
-| HBASE_CACHING |  | 0 |
+| EXPLAIN_LEVEL | 控制 EXPLAIN 语句输出中提供的详细信息量，值越大信息越多。 | 整数（0到3） | 1 |
+| HBASE_CACHE_BLOCKS | HBase中Scan的setCacheBlocks调用值。与 HBASE_CACHING 查询选项结合使用时有助于控制对 HBase 区域服务器的内存压力。 | 布尔值 | false |
+| HBASE_CACHING | HBase中Scan操作的setCaching调用值。与 HBASE_CACHING 查询选项结合使用时有助于控制对 HBase 区域服务器的内存压力。 | 布尔值 | false |
 | MAX_BLOCK_MGR_MEMORY |  | 0 |
-| MAX_ERRORS |  | 100 |
-| MAX_IO_BUFFERS |  | 0 |
+| MAX_ERRORS | Impala 日志文件中记录的任何特定查询的最大非致命错误数。 | | 整数 | 100 |
 | MAX_NUM_RUNTIME_FILTERS |  | 10 |
-| MAX_SCAN_RANGE_LENGTH |  | 0 |
+| MAX_SCAN_RANGE_LENGTH | 扫描范围的最大长度。与表中的 HDFS 块数进行交互来确定查询处理涉及群集内多少个 CPU 核心。（每个核心扫描一个扫描范围。） | 整数 | 0 |
 | MEM_LIMIT |  | 0 |
 | MT_DOP |  | 0 |
 | NUM_NODES |  | 0 |
@@ -58,4 +57,5 @@
 | :--- | :--- | :--- | :--- |
 | ABORT_ON_DEFAULT_LIMIT_EXCEEDED | 在 Impala 1.4.0 及更高版本中，ORDER BY 子句不再需要伴随 LIMIT 子句，此查询选项弃用且不会产生任何效果。 | | 布尔值 | false |
 | ALLOW_UNSUPPORTED_FORMATS | 以前用于为文件格式提供支持的已过时的查询选项。请勿使用。将来可能会被删除。 | 布尔值 | false |
-| DEFAULT_ORDER_BY_LIMIT | 此查询选项弃用且不会产生任何效果。 |  | -1 |
+| DEFAULT_ORDER_BY_LIMIT | 已弃用，当前已不起作用。 |  | -1 |
+| MAX_IO_BUFFERS | 已弃用，当前已不起作用。 |  | 0 |
