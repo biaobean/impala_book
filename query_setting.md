@@ -17,35 +17,35 @@
 | EXPLAIN_LEVEL | 控制 EXPLAIN 语句输出中提供的详细信息量，值越大信息越多。 | 整数（0到3） | 1 |
 | HBASE_CACHE_BLOCKS | HBase中Scan的setCacheBlocks调用值。与 HBASE_CACHING 查询选项结合使用时有助于控制对 HBase 区域服务器的内存压力。 | 布尔值 | false |
 | HBASE_CACHING | HBase中Scan操作的setCaching调用值。与 HBASE_CACHING 查询选项结合使用时有助于控制对 HBase 区域服务器的内存压力。 | 布尔值 | false |
-| MAX_BLOCK_MGR_MEMORY |  | 0 |
-| MAX_ERRORS | Impala 日志文件中记录的任何特定查询的最大非致命错误数。 | | 整数 | 100 |
-| MAX_NUM_RUNTIME_FILTERS |  | 10 |
+| MAX_BLOCK_MGR_MEMORY | | | 0 |
+| MAX_ERRORS | Impala 日志文件中记录的任何特定查询的最大非致命错误数。 | 整数 | 100 |
+| MAX_NUM_RUNTIME_FILTERS | | | 10 |
 | MAX_SCAN_RANGE_LENGTH | 每个CPU核心扫描HDFS文件（不适用于Parquet格式）范围的最大长度。注意Impala在内部使用8MB读取缓冲区。 | 整数 | 0（后端默认值，与HDFS块大小相同） |
 | MEM_LIMIT | 查询可以在每个节点上分配的最大内存量。如果任何节点上的查询处理超过指定的内存限制，Impala将取消查询。 | 整数 | 0 |
-| MT_DOP |  | 0 |
+| MT_DOP | | | 0 |
 | NUM_NODES | 限制处理查询的节点数，通常只用于调试。 | 仅接受值0（所有节点）或 1（只在Coordinator 节点上完成） | 0 |
 | NUM_SCANNER_THREADS | 一个节点上对每个查询使用的最大扫描器线程数（。默认情况下，每个核心一个线程。 | 整数 | 0 |
-| OPTIMIZE_PARTITION_KEY_SCANS |  | 0 |
-| PARQUET_ANNOTATE_STRINGS_UTF8 |  | 0 |
-| PARQUET_FALLBACK_SCHEMA_RESOLUTION |  | 0 |
+| OPTIMIZE_PARTITION_KEY_SCANS | | | 0 |
+| PARQUET_ANNOTATE_STRINGS_UTF8 | | | 0 |
+| PARQUET_FALLBACK_SCHEMA_RESOLUTION | | | 0 |
 | PARQUET_FILE_SIZE | 指定 Impala INSERT 语句生成的每个 Parquet 数据文件的最大大小的字节数。 | 整数 | 0（意味着256MB） |
-| PREFETCH_MODE |  | 1 |
+| PREFETCH_MODE | | | 1 |
 | QUERY_TIMEOUT_S | 以秒为单位设置会话的空闲查询超时值。超过超时值处于空闲状态的查询将自动取消。（必须小于_--idle_query_timeout_值） | 整数 | 0（如果_--idle_query_timeout_未生效则无超时；否则，使用_--idle_query_timeout_值） |
-| REPLICA_PREFERENCE |  | 0 |
+| REPLICA_PREFERENCE | | | 0 |
 | REQUEST_POOL | 查询应提交到的池或队列名称。只有当启用Admission Control或YARN时才适用。 | | |
 | RESERVATION_REQUEST_TIMEOUT | 将等待完全授予或拒绝预订的最大毫秒数。 | 整数 | 0（无超时） |
-| RM_INITIAL_MEM |  | 0 |
-| RUNTIME_BLOOM_FILTER_SIZE |  | 1048576 |
-| RUNTIME_FILTER_MAX_SIZE |  | 16777216 |
-| RUNTIME_FILTER_MIN_SIZE |  | 1048576 |
-| RUNTIME_FILTER_MODE |  | 2 |
-| RUNTIME_FILTER_WAIT_TIME_MS |  | 0 |
-| S3_SKIP_INSERT_STAGING |  | 1 |
-| SCAN_NODE_CODEGEN_THRESHOLD |  | 1800000 |
-| SCHEDULE_RANDOM_REPLICA |  | 0 |
-| SCRATCH_LIMIT |  | -1 |
-| SEQ_COMPRESSION_MODE |  | 0 |
-| STRICT_MODE |  | 0 |
+| RM_INITIAL_MEM | | | 0 |
+| RUNTIME_BLOOM_FILTER_SIZE | | | 1048576 |
+| RUNTIME_FILTER_MAX_SIZE | | | 16777216 |
+| RUNTIME_FILTER_MIN_SIZE | | | 1048576 |
+| RUNTIME_FILTER_MODE | | | 2 |
+| RUNTIME_FILTER_WAIT_TIME_MS | | | 0 |
+| S3_SKIP_INSERT_STAGING | | | 1 |
+| SCAN_NODE_CODEGEN_THRESHOLD | | | 1800000 |
+| SCHEDULE_RANDOM_REPLICA | | | 0 |
+| SCRATCH_LIMIT | | | -1 |
+| SEQ_COMPRESSION_MODE | | | 0 |
+| STRICT_MODE | | | 0 |
 | SYNC_DDL | DDL执行后，Catalog Service将会自动同步广播（默认为异步）此更改到所有节点。确保后续连接到群集中的其他节点能识别到之前任何节点添加或更改的表。 | 布尔值| false |
 | V_CPU_CORES | 要从YARN请求的每个主机的虚拟CPU核心数，与资源管理功能结合使用。如果设置，将覆盖来自Impala的自动估计值。 | 整数 | 0（意味着使用自动估计值） |
 
@@ -55,8 +55,8 @@
 
 | Flag | 说明 | 类型 | 缺省值 |
 | :--- | :--- | :--- | :--- |
-| ABORT_ON_DEFAULT_LIMIT_EXCEEDED | 在 Impala 1.4.0 及更高版本中，ORDER BY 子句不再需要伴随 LIMIT 子句，此查询选项弃用且不会产生任何效果。 | | 布尔值 | false |
+| ABORT_ON_DEFAULT_LIMIT_EXCEEDED | 在 Impala 1.4.0 及更高版本中，ORDER BY 子句不再需要伴随 LIMIT 子句，此查询选项弃用且不会产生任何效果。 | 布尔值 | false |
 | ALLOW_UNSUPPORTED_FORMATS | 以前用于为文件格式提供支持的已过时的查询选项。请勿使用。将来可能会被删除。 | 布尔值 | false |
-| DEFAULT_ORDER_BY_LIMIT | 已弃用，当前已不起作用。 |  | -1 |
-| MAX_IO_BUFFERS | 已弃用，当前已不起作用。 |  | 0 |
+| DEFAULT_ORDER_BY_LIMIT | 已弃用，当前已不起作用。 | | | -1 |
+| MAX_IO_BUFFERS | 已弃用，当前已不起作用。 | | | 0 |
 | SUPPORT_START_OVER | 保留设置为false。 | 布尔值 | false |
