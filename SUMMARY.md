@@ -12,4 +12,5 @@
 * [查询配置参数](query_setting.md)
 * [Impala Shell](impala-shell.md)
 * [资源管理](resource_management.md)
+* [HUE](hue.md)
 
