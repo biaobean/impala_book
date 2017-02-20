@@ -128,7 +128,7 @@ ln -s ../../../conf fe/src/test/resources
 
 ## 添加路径
 echo '
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$IMPALA_HOME/lib::$IMPALA_HOME/toolchain/gcc/lib64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$IMPALA_HOME/lib:$IMPALA_HOME/toolchain/gcc/lib64
 echo Added lib/ dir, now LD_LIBRARY_PATH=$LD_LIBRARY_PATH
 ' >> bin/impala-config.sh
 
