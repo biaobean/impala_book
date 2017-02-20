@@ -55,6 +55,7 @@ cd $BUILD_DIR
 copy_dir bin
 copy_dir www ## Web UI
 copy_dir infra
+copy_dir shell
 copy_dir be/build
 # copy_dir fe/src/test/resources
 copy_dir testdata/bin
