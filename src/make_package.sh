@@ -52,6 +52,7 @@ source $IMPALA_HOME/bin/impala-config.sh
 mkdir -p $BUILD_DIR
 cd $BUILD_DIR
 
+TIMESTAMP=`date +%Y%m%d%H%M`
 ########################################
 # Step 1. Copy files
 ########################################
@@ -139,10 +140,7 @@ echo Added lib/ dir, now LD_LIBRARY_PATH=$LD_LIBRARY_PATH
 ## Build
 cd ..
 
-tar zcvf impala.tar.gz ${BUILD_DIR} --exclude="*-test" --exclude=".gitignore"
-
-
-
+tar zcvf impala_${TIMESTAMP}.tar.gz ${BUILD_DIR} --exclude="*-test" --exclude=".gitignore"
 
 
 #IMPALA_SNAPPY_VERSION=1.1.3
