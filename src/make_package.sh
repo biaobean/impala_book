@@ -128,8 +128,6 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$IMPALA_HOME/lib::$IMPALA_HOME/lib/toolc
 echo Added lib/ dir, now LD_LIBRARY_PATH=$LD_LIBRARY_PATH
 ' >> bin/impala-config.sh
 
-
-
 ########################################
 # Step 3. Package
 ########################################
