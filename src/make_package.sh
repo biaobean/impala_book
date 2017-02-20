@@ -150,9 +150,3 @@ tar zcvf impala_${TIMESTAMP}.tar.gz ${BUILD_DIR} --exclude="*-test" --exclude=".
 #tar zcvf impala.tar.gz ${IMPALA_HOME} \
 #	--exclude="${IMPALA_HOME}/be/build/release/benchmarks" \
 #	--exclude="*.class" --exclude="*.o" --exclude="*.o" --exclude="${IMPALA_HOME}/thirdparty" --#exclude="${IMPALA_HOME}/.git" --exclude="${IMPALA_HOME}/tests" --exclude="${IMPALA_HOME}/Testing" --#exclude="${IMPALA_HOME}/testdata" --exclude="*.java" --exclude="*.cpp" --exclude="*.cc" --exclude="*.h" -#-exclude="expr-test"
-
-
-
-
-
-
