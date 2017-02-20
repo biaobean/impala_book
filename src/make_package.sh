@@ -91,6 +91,10 @@ cp $IMPALA_HOME/fe/target/*.jar fe/target
 #rm fe/target/*-tests.jar
 cp $IMPALA_HOME/fe/target/impala-frontend-*-SNAPSHOT.jar fe/target
 
+#IMPALA_SNAPPY_VERSION=1.1.3
+#IMPALA_GCC_VERSION=4.9.2
+#IMPALA_LLVM_VERSION=3.8.0-p1
+
 ## 复制依赖包
 cp ${HADOOP_LIB_DIR}/native/*.so ./lib
 cp ${IMPALA_SNAPPY_PATH}/*.so ./lib
@@ -141,11 +145,6 @@ echo Added lib/ dir, now LD_LIBRARY_PATH=$LD_LIBRARY_PATH
 cd ..
 
 tar zcvf impala_${TIMESTAMP}.tar.gz ${BUILD_DIR} --exclude="*-test" --exclude=".gitignore"
-
-
-#IMPALA_SNAPPY_VERSION=1.1.3
-#IMPALA_GCC_VERSION=4.9.2
-#IMPALA_LLVM_VERSION=3.8.0-p1
 
 #tar zcvf impala.tar.gz ${IMPALA_HOME} \
 #	--exclude="${IMPALA_HOME}/be/build/release/benchmarks" \
