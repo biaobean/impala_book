@@ -13,4 +13,6 @@
 * [Impala Shell](impala-shell.md)
 * [资源管理](resource_management.md)
 * [HUE](hue.md)
+* 篇外篇
+  * [如何获取Bloom FIilter的补丁](bloom_fiilter.md)
 
