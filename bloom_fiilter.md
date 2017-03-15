@@ -8,6 +8,14 @@
 | PARQUET-MR | https://github.com/cjjnjust/parquet-mr | parquet-41 | https://github.com/cjjnjust/parquet-mr/tree/parquet-41 |
 
 # 步骤
+
+## 环境设置
+
+```
+export BRANCH_BF_ROOT_DIR=`pwd` 
+export M2_REPO_HOME=$HOME/.m2/repository
+```
+
 ## 下载代码
 
 ```
@@ -38,7 +46,6 @@ git checkout parquet-41
 ## 编译
 
 ```
-BRANCH_BF_ROOT_DIR=`pwd` 
 cd $BRANCH_BF_ROOT_DIR/parquet-format
 mvn clean install -DskipTests
 
@@ -61,5 +68,21 @@ source $IMPALA_HOME/bin/impala-config.sh
 ## 打包
 
 ## 测试
+
+验证Parquet文件
+```
+
+ls -l $BRANCH_BF_ROOT_DIR/parquet-format/target/parquet-format-2.3.1-SNAPSHOT.jar
+ls -l $M2_REPO_HOME/org/apache/parquet/parquet-format/2.3.1-SNAPSHOT/parquet-format-2.3.1-SNAPSHOT.jar
+
+ls -l $BRANCH_BF_ROOT_DIR/parquet-mr/parquet-tools/target/parquet-tools-1.8.2-SNAPSHOT.jar
+ls -l $M2_REPO_HOME/org/apache/parquet/parquet-tools/1.8.2-SNAPSHOT/parquet-tools-1.8.2-SNAPSHOT.jar
+
+ls -l $BRANCH_BF_ROOT_DIR//parquet-mr/parquet-tools/dependency-reduced-pom.xml
+ls -l $M2_REPO_HOME/org/apache/parquet/parquet-tools/1.8.2-SNAPSHOT/parquet-tools-1.8.2-SNAPSHOT.pom
+
+ls -l $BRANCH_BF_ROOT_DIR//parquet-mr/parquet-tools/target/parquet-tools-1.8.2-SNAPSHOT-tests.jar
+ls -l $M2_REPO_HOME/org/apache/parquet/parquet-tools/1.8.2-SNAPSHOT/parquet-tools-1.8.2-SNAPSHOT-tests.jar
+```
 
 ## 部署
