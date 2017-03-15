@@ -70,8 +70,8 @@ source $IMPALA_HOME/bin/impala-config.sh
 ## 测试
 
 验证Parquet文件
-```
 
+```
 ls -l $BRANCH_BF_ROOT_DIR/parquet-format/target/parquet-format-2.3.1-SNAPSHOT.jar
 ls -l $M2_REPO_HOME/org/apache/parquet/parquet-format/2.3.1-SNAPSHOT/parquet-format-2.3.1-SNAPSHOT.jar
 
