@@ -109,10 +109,13 @@ sql("explain select * from tbf where record_id = '1233024271'").show
 
 ### 声明表
 
+1. 将文件拷贝到HDFS
+1. 声明外表（Impala外表必须在HDFS上）
+
 ```
-CREATE EXTERNAL TABLE bf_real_data LIKE PARQUET 'file:///home/ec2-user/branch/bf/data/bf_parq/part-r-00007-d98eb7a0-b566-467a-83fc-a7119b756178.snappy.parquet'
+CREATE EXTERNAL TABLE bf_real_data LIKE PARQUET '/data/bf_parq/part-r-00007-d98eb7a0-b566-467a-83fc-a7119b756178.snappy.parquet'
   STORED AS PARQUET
-  LOCATION 'file:///home/ec2-user/branch/bf/data/bf_parq';
+  LOCATION '/data/bf_parq';
 ```
 
 ## 部署
