@@ -7,6 +7,8 @@
 | PARQUET_FORMAT | https://github.com/cjjnjust/parquet-format | parquet-41 | https://github.com/cjjnjust/parquet-format/tree/parquet-41 |
 | PARQUET-MR | https://github.com/cjjnjust/parquet-mr | parquet-41 | https://github.com/cjjnjust/parquet-mr/tree/parquet-41 |
 
+代码参见：https://github.com/biaobean/impala-bf-package
+
 # 步骤
 
 ## 环境设置
